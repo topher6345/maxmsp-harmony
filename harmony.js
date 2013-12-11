@@ -24,9 +24,16 @@ function ionian_2oct(val)
 
 function ionian_triads(val)
 {
-		var io = [[0,4,7],[2,5,9]];
+		var io = [[0,4,7],
+				  [2,5,9],
+				  [4,7,11],
+				  [5,9,12],
+				  [7,11,14],
+				  [9,12,16],
+				  [11,14,17],
+				];		
 		val = Math.abs(val);
-		val = val % 2;
+		val = val % 7;
 		
 		for (var i=0; i < 3; i++){
 			outlet(i,io[val][i] + octave);
@@ -133,15 +140,57 @@ function pentatonic_4(val)
 
 function arpeggio_triad(chord,index)
 {
-	var io = [[0,4,7],[2,5,9]];
+				var io = [[0,4,7],
+				  [2,5,9],
+				  [4,7,11],
+				  [5,9,12],
+				  [7,11,14],
+				  [9,12,16],
+				  [11,14,17],
+				];	
 
 		chord = Math.abs(chord);
-		chord = chord % 2;
+		chord = chord % 7;
 		
 		index = Math.abs(index);
 		index = index % 3;
 		
 		outlet(i,io[chord][index] + octave);
+}
+
+function full_range_arpeggio_triad(chord, index)
+{
 	
+	var transpose;
+	var octaves;
+			var io = [[0,4,7],
+				  [2,5,9],
+				  [4,7,11],
+				  [5,9,12],
+				  [7,11,14],
+				  [9,12,16],
+				  [11,14,17],
+				];		
+		
+		chord = Math.abs(chord);
+		chord = chord % 7;
+		
+		index = Math.abs(index);
+		
+		
+		i = index % 3; // can only play notes of the chord
+		
+		index = index % 30;
+		// how many times does index go into three dis
+		octaves = (index/3) - (((index % 3)/3));
+		
+		post(octaves);
+		
+		
+		transpose = 12 * octaves;
+
+		//tra
+		outlet(i,io[chord][i] + transpose);
+				
 	
 }
