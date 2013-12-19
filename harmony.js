@@ -184,7 +184,44 @@ function full_range_arpeggio_triad(chord, index)
 		// how many times does index go into three dis
 		octaves = (index/3) - (((index % 3)/3));
 		
-		post(octaves);
+		// post(octaves);
+		
+		
+		transpose = 12 * octaves;
+
+		//tra
+		outlet(i,io[chord][i] + transpose);
+				
+	
+}
+
+function full_range_arpeggio_sevenths(chord, index)
+{
+	
+	var transpose;
+	var octaves;
+			var io = [[0,4,7,11],
+				  [2,5,9,12],
+				  [4,7,11,14],
+				  [5,9,12,16],
+				  [7,11,14, 17],
+				  [9,12,16, 19],
+				  [11,14,17, 21],
+				];		
+		
+		chord = Math.abs(chord);
+		chord = chord % 7;
+		
+		index = Math.abs(index);
+		
+		
+		i = index % 3; // can only play notes of the chord
+		
+		index = index % 30;
+		// how many times does index go into three dis
+		octaves = (index/3) - (((index % 3)/3));
+		
+		// post(octaves);
 		
 		
 		transpose = 12 * octaves;
