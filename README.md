@@ -3,8 +3,8 @@ maxmsp-harmony
 
 A javascript object in max-msp to do diatonic harmony.
 
-functions:
-
+### functions:
+* transpose_octave $1
 * ionian $1
 * ionian_2oct $1
 * diatonic_triads $1
