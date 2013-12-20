@@ -22,7 +22,7 @@ function ionian_2oct(val)
 }
 
 
-function ionian_triads(val)
+function diatonic_triads(val)
 {
 		var io = [[0,4,7],
 				  [2,5,9],
@@ -39,7 +39,7 @@ function ionian_triads(val)
 			outlet(i,io[val][i] + octave);
 		}
 }
-function ionian_sevenths(val)
+function diatonic_sevenths(val)
 {
 		var io = [[0,4,7,11],
 				  [2,5,9,12],
@@ -58,7 +58,7 @@ function ionian_sevenths(val)
 		}
 }
 
-function ionian_sevenths_circle(val)
+function diatonic_sevenths_circle(val)
 {
 		var io = [[0,4,7,11],
 				  [5,9,12,4],
@@ -77,6 +77,8 @@ function ionian_sevenths_circle(val)
 		}
 }
 
+
+// #transpose
 function transpose_octave(val)
 {
 		if (inlet==1){
@@ -87,6 +89,8 @@ function transpose_octave(val)
 		}
 	
 }
+
+//#pentatonic
 	
 function pentatonic(val)
 {
@@ -137,6 +141,8 @@ function pentatonic_4(val)
 		outlet(0,io[val] + octave);		
 	
 }
+
+//#arpeggios
 
 function arpeggio_triad(chord,index)
 {
@@ -215,11 +221,11 @@ function full_range_arpeggio_sevenths(chord, index)
 		index = Math.abs(index);
 		
 		
-		i = index % 3; // can only play notes of the chord
+		i = index % 4; // can only play notes of the chord
 		
 		index = index % 30;
 		// how many times does index go into three dis
-		octaves = (index/3) - (((index % 3)/3));
+		octaves = (index/4) - (((index % 4)/4));
 		
 		// post(octaves);
 		
@@ -229,5 +235,20 @@ function full_range_arpeggio_sevenths(chord, index)
 		//tra
 		outlet(i,io[chord][i] + transpose);
 				
-	
+}
+
+function dorian(val)
+{
+	var io = [2,4,5,7,9,11,12];
+	val = Math.abs(val);
+	val = val % 7;
+	outlet(0,io[val] + octave);
+}
+
+function dorian_2oct(val)
+{
+	var io = [2,4,5,7,9,11,12,14,16,17,19,21,23,24];
+	val = Math.abs(val);
+	val = val % 15;
+	outlet(0,io[val] + octave);
 }
