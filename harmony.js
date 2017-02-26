@@ -1,3 +1,5 @@
+"use strict";
+
 // MaxMSP Integration points.
 // These should be kept global.
 inlets = 2;
@@ -6,7 +8,7 @@ outlets = 4;
 var octave = 36;
 
 function ionian(val) {
-  let io = [0, 2, 4, 5, 7, 9, 11];
+  var io = [0, 2, 4, 5, 7, 9, 11];
   val = Math.abs(val);
   val = val % 7;
   outlet(0, io[val] + octave);
