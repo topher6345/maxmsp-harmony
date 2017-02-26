@@ -20,7 +20,15 @@ function ionian_2oct(val) {
 }
 
 function diatonic_triads(val) {
-  var io = [[0, 4, 7], [2, 5, 9], [4, 7, 11], [5, 9, 12], [7, 11, 14], [9, 12, 16], [11, 14, 17]];
+  var io = [
+    [0, 4, 7],
+    [2, 5, 9],
+    [4, 7, 11],
+    [5, 9, 12],
+    [7, 11, 14],
+    [9, 12, 16],
+    [11, 14, 17],
+  ];
   val = Math.abs(val);
   val = val % 7;
 
@@ -30,7 +38,15 @@ function diatonic_triads(val) {
 }
 
 function diatonic_sevenths(val) {
-  var io = [[0, 4, 7, 11], [2, 5, 9, 12], [4, 7, 11, 14], [5, 9, 12, 4], [7, 11, 2, 5], [9, 12, 4, 7], [11, 14, 5, 9]];
+  var io = [
+    [0, 4, 7, 11],
+    [2, 5, 9, 12],
+    [4, 7, 11, 14],
+    [5, 9, 12, 4],
+    [7, 11, 2, 5],
+    [9, 12, 4, 7],
+    [11, 14, 5, 9],
+  ];
 
   val = Math.abs(val);
   val = val % 7;
@@ -41,7 +57,15 @@ function diatonic_sevenths(val) {
 }
 
 function diatonic_sevenths_circle(val) {
-  var io = [[0, 4, 7, 11], [5, 9, 12, 4], [11, 14, 5, 9], [4, 7, 11, 14], [9, 12, 4, 7], [2, 5, 9, 12], [7, 11, 2, 5]];
+  var io = [
+    [0, 4, 7, 11],
+    [5, 9, 12, 4],
+    [11, 14, 5, 9],
+    [4, 7, 11, 14],
+    [9, 12, 4, 7],
+    [2, 5, 9, 12],
+    [7, 11, 2, 5],
+  ];
 
   val = Math.abs(val);
   val = val % 7;
@@ -51,13 +75,16 @@ function diatonic_sevenths_circle(val) {
   }
 }
 
+
 // #transpose
 function transpose_octave(val) {
   if (inlet == 1) {
 
     val = val % 8;
     octave = val * 12;
+
   }
+
 }
 
 //#pentatonic
@@ -68,6 +95,7 @@ function pentatonic(val) {
   val = Math.abs(val);
   val = val % 5;
   outlet(0, io[val] + octave);
+
 }
 
 function pentatonic_1(val) {
@@ -76,6 +104,7 @@ function pentatonic_1(val) {
   val = Math.abs(val);
   val = val % 5;
   outlet(0, io[val] + octave);
+
 }
 
 function pentatonic_2(val) {
@@ -84,6 +113,7 @@ function pentatonic_2(val) {
   val = Math.abs(val);
   val = val % 5;
   outlet(0, io[val] + octave);
+
 }
 
 function pentatonic_3(val) {
@@ -92,6 +122,7 @@ function pentatonic_3(val) {
   val = Math.abs(val);
   val = val % 5;
   outlet(0, io[val] + octave);
+
 }
 
 function pentatonic_4(val) {
@@ -100,12 +131,21 @@ function pentatonic_4(val) {
   val = Math.abs(val);
   val = val % 5;
   outlet(0, io[val] + octave);
+
 }
 
 //#arpeggios
 
 function arpeggio_triad(chord, index) {
-  var io = [[0, 4, 7], [2, 5, 9], [4, 7, 11], [5, 9, 12], [7, 11, 14], [9, 12, 16], [11, 14, 17]];
+  var io = [
+    [0, 4, 7],
+    [2, 5, 9],
+    [4, 7, 11],
+    [5, 9, 12],
+    [7, 11, 14],
+    [9, 12, 16],
+    [11, 14, 17],
+  ];
 
   chord = Math.abs(chord);
   chord = chord % 7;
@@ -120,7 +160,15 @@ function full_range_arpeggio_triad(chord, index) {
 
   var transpose;
   var octaves;
-  var io = [[0, 4, 7], [2, 5, 9], [4, 7, 11], [5, 9, 12], [7, 11, 14], [9, 12, 16], [11, 14, 17]];
+  var io = [
+    [0, 4, 7],
+    [2, 5, 9],
+    [4, 7, 11],
+    [5, 9, 12],
+    [7, 11, 14],
+    [9, 12, 16],
+    [11, 14, 17],
+  ];
 
   chord = Math.abs(chord);
   chord = chord % 7;
@@ -131,7 +179,7 @@ function full_range_arpeggio_triad(chord, index) {
 
   index = index % 30;
   // how many times does index go into three dis
-  octaves = index / 3 - index % 3 / 3;
+  octaves = (index / 3) - (((index % 3) / 3));
 
   // post(octaves);
   transpose = 12 * octaves;
@@ -143,7 +191,15 @@ function full_range_arpeggio_triad(chord, index) {
 function full_range_arpeggio_sevenths(chord, index) {
   var transpose;
   var octaves;
-  var io = [[0, 4, 7, 11], [2, 5, 9, 12], [4, 7, 11, 14], [5, 9, 12, 16], [7, 11, 14, 17], [9, 12, 16, 19], [11, 14, 17, 21]];
+  var io = [
+    [0, 4, 7, 11],
+    [2, 5, 9, 12],
+    [4, 7, 11, 14],
+    [5, 9, 12, 16],
+    [7, 11, 14, 17],
+    [9, 12, 16, 19],
+    [11, 14, 17, 21],
+  ];
 
   chord = Math.abs(chord);
   chord = chord % 7;
@@ -154,7 +210,7 @@ function full_range_arpeggio_sevenths(chord, index) {
 
   index = index % 30;
 
-  octaves = index / 4 - index % 4 / 4;
+  octaves = (index / 4) - (((index % 4) / 4));
 
   transpose = 12 * octaves;
 

@@ -1,0 +1,28 @@
+{
+  "name": "maxmsp-harmony",
+  "version": "0.0.1",
+  "description": "Javascript utitilies for interacting with MaxMSP.",
+  "main": "harmony.js",
+  "dependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.1.10"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.1.10"
+  },
+  "scripts": {
+    "build": "babel src/harmony.js --out-file harmony.js",
+    "max": "open -W chordgen.maxpat"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/topher6345/maxmsp-harmony.git"
+  },
+  "author": "Topher Saunders",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/topher6345/maxmsp-harmony/issues"
+  },
+  "homepage": "https://github.com/topher6345/maxmsp-harmony#readme"
+}
