@@ -115,7 +115,9 @@ function arpeggio_triad(chord, index) {
   index = Math.abs(index);
   index = index % 3;
 
-  outlet(i, io[chord][index] + octave);
+  for (var i = 0; i < 4; i++) {
+    outlet(i, io[chord][index] + octave);
+  }
 }
 
 function full_range_arpeggio_triad(chord, index) {
@@ -159,8 +161,9 @@ function full_range_arpeggio_sevenths(chord, index) {
   octaves = index / 4 - index % 4 / 4;
 
   transpose = 12 * octaves;
-
-  outlet(i, io[chord][i] + transpose);
+  for (var i = 0; i < 4; i++) {
+    outlet(i, io[chord][i] + transpose);
+  }
 }
 
 function dorian(val) {
