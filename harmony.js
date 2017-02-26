@@ -56,16 +56,13 @@ function diatonic_sevenths_circle(val) {
 // #transpose
 function transpose_octave(val) {
   if (inlet == 1) {
-
     val = val % 8;
     octave = val * 12;
   }
 }
 
 //#pentatonic
-
 function pentatonic(val) {
-
   var io = [0, 2, 4, 7, 9];
   val = Math.abs(val);
   val = val % 5;
@@ -73,7 +70,6 @@ function pentatonic(val) {
 }
 
 function pentatonic_1(val) {
-
   var io = [2, 4, 5, 9, 11];
   val = Math.abs(val);
   val = val % 5;
@@ -81,7 +77,6 @@ function pentatonic_1(val) {
 }
 
 function pentatonic_2(val) {
-
   var io = [4, 5, 7, 11, 14];
   val = Math.abs(val);
   val = val % 5;
@@ -89,7 +84,6 @@ function pentatonic_2(val) {
 }
 
 function pentatonic_3(val) {
-
   var io = [5, 7, 9, 12, 4];
   val = Math.abs(val);
   val = val % 5;
@@ -97,7 +91,6 @@ function pentatonic_3(val) {
 }
 
 function pentatonic_4(val) {
-
   var io = [7, 9, 11, 2, 5];
   val = Math.abs(val);
   val = val % 5;
@@ -105,7 +98,6 @@ function pentatonic_4(val) {
 }
 
 //#arpeggios
-
 function arpeggio_triad(chord, index) {
   var io = [[0, 4, 7], [2, 5, 9], [4, 7, 11], [5, 9, 12], [7, 11, 14], [9, 12, 16], [11, 14, 17]];
 
@@ -121,7 +113,6 @@ function arpeggio_triad(chord, index) {
 }
 
 function full_range_arpeggio_triad(chord, index) {
-
   var transpose;
   var octaves;
   var io = [[0, 4, 7], [2, 5, 9], [4, 7, 11], [5, 9, 12], [7, 11, 14], [9, 12, 16], [11, 14, 17]];
@@ -131,17 +122,13 @@ function full_range_arpeggio_triad(chord, index) {
 
   index = Math.abs(index);
 
-  i = index % 3; // can only play notes of the chord
-
   index = index % 30;
-  // how many times does index go into three dis
+
   octaves = index / 3 - index % 3 / 3;
 
-  // post(octaves);
   transpose = 12 * octaves;
 
-  //tra
-  outlet(i, io[chord][i] + transpose);
+  outlet(0, io[chord][index % 3] + transpose);
 }
 
 function full_range_arpeggio_sevenths(chord, index) {
@@ -162,7 +149,7 @@ function full_range_arpeggio_sevenths(chord, index) {
 
   transpose = 12 * octaves;
   for (var i = 0; i < 4; i++) {
-    outlet(i, io[chord][i] + transpose);
+    outlet(i, io[chord][index % 4] + transpose);
   }
 }
 

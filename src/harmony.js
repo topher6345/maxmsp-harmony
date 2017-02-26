@@ -33,7 +33,7 @@ function diatonic_triads(val) {
   val = val % 7;
 
   for (var i = 0; i < 3; i++) {
-    outlet(outlets, io[val][i] + octave);
+    outlet(i, io[val][i] + octave);
   }
 }
 
@@ -52,7 +52,7 @@ function diatonic_sevenths(val) {
   val = val % 7;
 
   for (var i = 0; i < 4; i++) {
-    outlet(outlets, io[val][i] + octave);
+    outlet(i, io[val][i] + octave);
   }
 }
 
@@ -71,7 +71,7 @@ function diatonic_sevenths_circle(val) {
   val = val % 7;
 
   for (var i = 0; i < 4; i++) {
-    outlet(outlets, io[val][i] + octave);
+    outlet(i, io[val][i] + octave);
   }
 }
 
@@ -139,7 +139,7 @@ function arpeggio_triad(chord, index) {
   index = index % 3;
 
   for (var i = 0; i < 4; i++) {
-    outlet(outlets, io[chord][index] + octave);
+    outlet(i, io[chord][index] + octave);
   }
 }
 
@@ -161,19 +161,13 @@ function full_range_arpeggio_triad(chord, index) {
 
   index = Math.abs(index);
 
-  i = index % 3; // can only play notes of the chord
-
   index = index % 30;
-  // how many times does index go into three dis
+
   octaves = (index / 3) - (((index % 3) / 3));
 
-  // post(octaves);
   transpose = 12 * octaves;
 
-  //tra
-  for (var i = 0; i < 4; i++) {
-    outlet(outlets, io[chord][i] + transpose);
-  }
+  outlet(0, io[chord][index % 3] + transpose);
 }
 
 function full_range_arpeggio_sevenths(chord, index) {
@@ -202,7 +196,7 @@ function full_range_arpeggio_sevenths(chord, index) {
 
   transpose = 12 * octaves;
   for (var i = 0; i < 4; i++) {
-    outlet(outlets, io[chord][i] + transpose);
+    outlet(i, io[chord][index % 4] + transpose);
   }
 }
 
