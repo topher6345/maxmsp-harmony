@@ -174,6 +174,8 @@ function note_in_key(tonality, degree) {
     table= [
       ["C", "D", "E", "F", "G", "A", "B"],
       ["Db", "Eb", "F", "Gb", "Ab", "Bb", "C"],
+      ["D", "E", "F#", "G", "A", "B", "C#"],
+      ["Eb", "F", "G", "A", "Bb", "C", "D"],
       ["E", "F#", "G#", "A", "B", "C#", "D#"],
       ["F", "G", "A", "Bb", "C", "D", "E"],
       ["Gb", "Ab", "Bb", "Cb", "Db", "Eb", "F"],
@@ -199,5 +201,5 @@ function note_in_key(tonality, degree) {
       ["B", "C#", "D#", "E", "F#", "G#", "A#"],
     ]
   }
-  outlet(0,table[tonality][degree % 7]);
+  outlet(0,table[Math.abs(tonality) % 12][degree % 7]);
 }
