@@ -166,3 +166,38 @@ function dorian_2oct(val) {
   val = val % 15;
   outlet(0, io[val] + octave);
 }
+
+
+function note_in_key(tonality, degree) {
+  var table;
+  if(0 >= tonality) {
+    table= [
+      ["C", "D", "E", "F", "G", "A", "B"],
+      ["Db", "Eb", "F", "Gb", "Ab", "Bb", "C"],
+      ["E", "F#", "G#", "A", "B", "C#", "D#"],
+      ["F", "G", "A", "Bb", "C", "D", "E"],
+      ["Gb", "Ab", "Bb", "Cb", "Db", "Eb", "F"],
+      ["G", "A", "B", "C", "D", "E", "F#"],
+      ["Ab", "Bb", "C", "Db", "Eb", "F", "G"],
+      ["A", "B", "C#", "D", "E", "F#", "G#"],
+      ["Bb", "C", "D", "Eb", "F", "G", "A"],
+      ["B", "C#", "D#", "E", "F#", "G#", "A#"],
+    ]
+  } else {
+    table = [
+      ["C", "D", "E", "F", "G", "A", "B"],
+      ["C#", "D#", "E#", "F#", "G#", "A#", "B#"],
+      ["D", "E", "F#", "G", "A", "B", "C#"],
+      ["D#", "E#", "F##", "G#", "A#", "B#", "C##"],
+      ["E", "F#", "G#", "A", "B", "C#", "D#"],
+      ["F", "G", "A", "Bb", "C", "D", "E"],
+      ["F#", "G#", "A#", "B", "C#", "D#", "E#"],
+      ["G", "A", "B", "C", "D", "E", "F#"],
+      ["G#", "A#", "B#", "C#", "D#", "E#", "F##"],
+      ["A", "B", "C#", "D", "E", "F#", "G#"],
+      ["A#", "B#", "C##", "D", "E", "F#", "G#"],
+      ["B", "C#", "D#", "E", "F#", "G#", "A#"],
+    ]
+  }
+  outlet(0,table[tonality][degree % 7]);
+}
