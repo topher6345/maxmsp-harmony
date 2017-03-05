@@ -9,7 +9,13 @@ if (typeof module === 'undefined') {
   var module = {};
 }
 
+// MaxMSP doesn't define console.log
+// So this will blow up at the MaxMSP level
+// if statements are accidently left in
 if (typeof console === 'undefined') {
+
+  // In mocha, post() is undefined,
+  // this will define it as a callable no-op
   if (typeof post === 'undefined') {
     var post = function(){};
   }

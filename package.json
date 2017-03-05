@@ -16,7 +16,8 @@
   },
   "scripts": {
     "build": "babel src/harmony.js --out-file harmony.js",
-    "max": "open -W chordgen.maxpat"
+    "max": "open -W chordgen.maxpat",
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
