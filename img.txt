@@ -1,0 +1,12 @@
+0, 200px-Treble_clef_with_empty_staff.svg.png;
+1, 200px-C-sharp-major_a-sharp-minor.svg.png;
+2, 200px-D-major_h-minor.svg.png;
+3, 200px-E-flat-major_c-minor.svg.png;
+4, 200px-E-major_c-sharp-minor.svg.png;
+5, 200px-F-major_d-minor.svg.png;
+6, 200px-G-flat-major_e-flat-minor.svg.png;
+7, 200px-G-major_e-minor.svg.png;
+8, 200px-A-flat-major_f-minor.svg.png;
+9, 200px-A-major_f-sharp-minor.svg.png;
+10, 200px-B-flat-major_g-minor.svg.png;
+11, 200px-B-major_g-sharp-minor.svg.png;
