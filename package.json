@@ -5,6 +5,7 @@
   "main": "harmony.js",
   "dependencies": {
     "babel-cli": "^6.23.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
     "babel-preset-env": "^1.1.10"
   },
   "devDependencies": {

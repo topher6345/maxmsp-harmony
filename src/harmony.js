@@ -5,7 +5,15 @@ outlets = 4;
 
 var octave = 36;
 
-var exports = module.exports = {
+if (typeof module === 'undefined') {
+  var module = {};
+}
+
+if (typeof console === 'undefined') {
+  var console = { log: post};
+}
+
+module.exports = {
   note_in_key: function(tonality, degree) {
     var table;
     if(0 >= tonality) {
@@ -253,5 +261,5 @@ function dorian_2oct(val) {
 }
 
 function note_in_key(tonality, degree) {
-  outlet(0,exports.note_in_key(tonality, degree));
+  outlet(0,module.exports.note_in_key(tonality, degree));
 }
