@@ -12,6 +12,10 @@ if (typeof _module === 'undefined') {
 }
 
 if (typeof console === 'undefined') {
+  if (typeof post === 'undefined') {
+    var post = function post() {};
+  }
+
   var console = { log: post };
 }
 

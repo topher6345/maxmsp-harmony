@@ -517,7 +517,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 222.833313, 466.0, 90.0, 48.0 ],
-					"text" : "F#"
+					"text" : "F"
 				}
 
 			}
@@ -572,7 +572,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 384.5, 468.0, 56.0, 48.0 ],
-					"text" : "IV"
+					"text" : "I"
 				}
 
 			}
@@ -676,7 +676,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 15.0, 331.0, 66.0, 48.0 ],
-									"text" : "IV"
+									"text" : "I"
 								}
 
 							}
@@ -1199,7 +1199,7 @@
 			}
 , 			{
 				"box" : 				{
-					"hint" : "x 8 y 6",
+					"hint" : "x 0 y 11",
 					"id" : "obj-16",
 					"maxclass" : "itable",
 					"name" : "",
@@ -1302,7 +1302,7 @@
 			}
 , 			{
 				"box" : 				{
-					"hint" : "x 5 y 6",
+					"hint" : "x 7 y 1",
 					"id" : "obj-6",
 					"maxclass" : "itable",
 					"name" : "",

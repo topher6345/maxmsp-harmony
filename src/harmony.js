@@ -10,7 +10,11 @@ if (typeof module === 'undefined') {
 }
 
 if (typeof console === 'undefined') {
-  var console = { log: post};
+  if (typeof post === 'undefined') {
+    var post = function(){};
+  }
+
+  var console = { log: post };
 }
 
 module.exports = {
