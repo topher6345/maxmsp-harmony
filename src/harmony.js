@@ -5,6 +5,44 @@ outlets = 4;
 
 var octave = 36;
 
+var exports = module.exports = {
+  note_in_key: function(tonality, degree) {
+    var table;
+    if(0 >= tonality) {
+      table= [
+        ["C", "D", "E", "F", "G", "A", "B"],
+        ["Db", "Eb", "F", "Gb", "Ab", "Bb", "C"],
+        ["D", "E", "F#", "G", "A", "B", "C#"],
+        ["Eb", "F", "G", "A", "Bb", "C", "D"],
+        ["E", "F#", "G#", "A", "B", "C#", "D#"],
+        ["F", "G", "A", "Bb", "C", "D", "E"],
+        ["Gb", "Ab", "Bb", "Cb", "Db", "Eb", "F"],
+        ["G", "A", "B", "C", "D", "E", "F#"],
+        ["Ab", "Bb", "C", "Db", "Eb", "F", "G"],
+        ["A", "B", "C#", "D", "E", "F#", "G#"],
+        ["Bb", "C", "D", "Eb", "F", "G", "A"],
+        ["B", "C#", "D#", "E", "F#", "G#", "A#"],
+      ]
+    } else {
+      table = [
+        ["C", "D", "E", "F", "G", "A", "B"],
+        ["C#", "D#", "E#", "F#", "G#", "A#", "B#"],
+        ["D", "E", "F#", "G", "A", "B", "C#"],
+        ["D#", "E#", "F##", "G#", "A#", "B#", "C##"],
+        ["E", "F#", "G#", "A", "B", "C#", "D#"],
+        ["F", "G", "A", "Bb", "C", "D", "E"],
+        ["F#", "G#", "A#", "B", "C#", "D#", "E#"],
+        ["G", "A", "B", "C", "D", "E", "F#"],
+        ["G#", "A#", "B#", "C#", "D#", "E#", "F##"],
+        ["A", "B", "C#", "D", "E", "F#", "G#"],
+        ["A#", "B#", "C##", "D", "E", "F#", "G#"],
+        ["B", "C#", "D#", "E", "F#", "G#", "A#"],
+      ]
+    }
+    return table[Math.abs(tonality) % 12][degree % 7];
+  }
+}
+
 function ionian(val) {
   let io = [0, 2, 4, 5, 7, 9, 11];
   val = Math.abs(val);
@@ -215,37 +253,5 @@ function dorian_2oct(val) {
 }
 
 function note_in_key(tonality, degree) {
-  var table;
-  if(0 >= tonality) {
-    table= [
-      ["C", "D", "E", "F", "G", "A", "B"],
-      ["Db", "Eb", "F", "Gb", "Ab", "Bb", "C"],
-      ["D", "E", "F#", "G", "A", "B", "C#"],
-      ["Eb", "F", "G", "A", "Bb", "C", "D"],
-      ["E", "F#", "G#", "A", "B", "C#", "D#"],
-      ["F", "G", "A", "Bb", "C", "D", "E"],
-      ["Gb", "Ab", "Bb", "Cb", "Db", "Eb", "F"],
-      ["G", "A", "B", "C", "D", "E", "F#"],
-      ["Ab", "Bb", "C", "Db", "Eb", "F", "G"],
-      ["A", "B", "C#", "D", "E", "F#", "G#"],
-      ["Bb", "C", "D", "Eb", "F", "G", "A"],
-      ["B", "C#", "D#", "E", "F#", "G#", "A#"],
-    ]
-  } else {
-    table = [
-      ["C", "D", "E", "F", "G", "A", "B"],
-      ["C#", "D#", "E#", "F#", "G#", "A#", "B#"],
-      ["D", "E", "F#", "G", "A", "B", "C#"],
-      ["D#", "E#", "F##", "G#", "A#", "B#", "C##"],
-      ["E", "F#", "G#", "A", "B", "C#", "D#"],
-      ["F", "G", "A", "Bb", "C", "D", "E"],
-      ["F#", "G#", "A#", "B", "C#", "D#", "E#"],
-      ["G", "A", "B", "C", "D", "E", "F#"],
-      ["G#", "A#", "B#", "C#", "D#", "E#", "F##"],
-      ["A", "B", "C#", "D", "E", "F#", "G#"],
-      ["A#", "B#", "C##", "D", "E", "F#", "G#"],
-      ["B", "C#", "D#", "E", "F#", "G#", "A#"],
-    ]
-  }
-  outlet(0,table[Math.abs(tonality) % 12][degree % 7]);
+  outlet(0,exports.note_in_key(tonality, degree));
 }
