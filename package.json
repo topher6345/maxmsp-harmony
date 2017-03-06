@@ -16,7 +16,8 @@
   },
   "scripts": {
     "build": "babel src/harmony.js --out-file harmony.js",
-    "max": "open -W chordgen.maxpat",
+    "chord": "open -W chordgen.maxpat",
+    "circle": "open -W circle_of_fifths.maxpat",
     "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
